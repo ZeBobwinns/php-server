@@ -47,6 +47,10 @@ console.log(args);
                     value: 'Makes a list to cycle through',
                 },
                 {
+                    name: 'makemutelist',
+                    value: 'Makes a list to cycle through, and mutes everyone but the first person in the list',
+                },
+                {
                     name: 'next',
                     value: 'Cycles through the list, and @s the next person',
                 },
@@ -148,7 +152,7 @@ async function doPromise(message) {
            muteListMembers[i] = getUserFromMention(args[i]);
            i++;
        }
-       activeUnmmute = 0;
+       activeUnmmute = -1;
        if (getUserNamesFromList(muteListMembers) == "") {
            message.channel.send("Bro, you didnt even mention anyone.")
        }
@@ -163,6 +167,37 @@ async function doPromise(message) {
            activeUnmmute++
            }
            message.channel.send(message.guild.members.cache.get(muteListMembers[activeUnmmute].id).toString()+", you are up!");
+}
+}
+
+
+if (command == "makemutelist") {
+
+    var i = 0;
+    muteMembersLength = args.length;
+   while (i < args.length) {
+       muteListMembers[i] = getUserFromMention(args[i]);
+       i++;
+   }
+   activeUnmmute = -1;
+   if (getUserNamesFromList(muteListMembers) == "") {
+       message.channel.send("Bro, you didnt even mention anyone.")
+   }
+   else {
+   console.log("List: " +muteListMembers+" is " +muteMembersLength+ " people long.");
+   message.channel.send("The list includes"+getUserNamesFromList(muteListMembers)+".")
+
+       if (activeUnmmute > muteMembersLength - 2) {
+           activeUnmmute = 0;
+       }
+       else {
+       activeUnmmute++
+       }
+       muteListMembers.forEach(function(member){
+        message.guild.members.cache.get(member.id).voice.setMute(true);
+        })
+        message.guild.members.cache.get(muteListMembers[activeUnmmute].id).voice.setMute(false);
+       message.channel.send(message.guild.members.cache.get(muteListMembers[activeUnmmute].id).toString()+", you are up!");
 }
 }
 
