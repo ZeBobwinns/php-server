@@ -128,11 +128,11 @@ async function doPromise(message) {
 }
 
         if (command == "deletelist") {
-            muteListMembers = [];
-            muteMembersLength = 0;
             muteListMembers.forEach(member => {
                 member.voice.setMute(false);
             });
+            muteListMembers = [];
+            muteMembersLength = 0;
             message.channel.send("Ive unmuted all of you and taken you off my naughty mute list.")
         }
 
