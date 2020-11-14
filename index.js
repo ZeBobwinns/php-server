@@ -22,7 +22,38 @@ console.log(args);
     }
 
     if(command=="help") {
-        message.channel.send("help: sends this help command; joinvoice: joins your voice channel; muteall: mutes everyone in your voice channel; unmuteall: unmutes everyone in your voice channel; makemutelist: makes a list to cycle through muteing; mutenext: goes to the next person in the mute list;");
+        const exampleEmbed = {
+            color: 0xffffff,
+            title: 'Help',
+            fields: [
+                {
+                    name: 'Regular field title',
+                    value: 'Some value here',
+                },
+                {
+                    name: '\u200b',
+                    value: '\u200b',
+                    inline: false,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+            ],
+        };
+        
+        message.channel.send({ embed: exampleEmbed });
     }
 
     if (command == "timer") {
