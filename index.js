@@ -49,10 +49,6 @@ console.log(args);
         }
         }
 
-        if(command=="leavevoice") {
-            client.leaveVoiceChannel(client.voiceState.channelID);
-            message.channel.send("Bye Bye.")
-        }
 
         }
 });
