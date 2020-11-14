@@ -1,0 +1,11 @@
+{
+    "name": "heroku-node",
+    "description": "Our sample Node to Heroku app",
+    "main": "index.js",
+    "scripts": {
+      "start": "index.js"
+    },
+    "dependencies": {
+
+    }
+  }
