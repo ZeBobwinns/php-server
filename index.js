@@ -180,5 +180,5 @@ function getUserNamesFromList(list) {
     }
 
 client.login(TOKEN);
-client.listen(process.env.PORT || 5000);
+Discord.listen(process.env.PORT || 5000);
 console.log(`Logged in as `+TOKEN)
