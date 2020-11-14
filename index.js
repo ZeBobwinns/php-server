@@ -201,6 +201,9 @@ async function doPromise(message) {
             if (typeof args[0] == 'undefined') {
                 message.channel.send("You need to designate a prefix.")
             }
+            else if (args[0].length > 1) {
+                message.channel.send("Prefix can only be 1 character long!")
+            }
             else {
                 prefix = args[0];
                 message.channel.send("Prefix changed to "+args[0])
