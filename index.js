@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 
 const TOKEN = "NzUxODM0MzEwNDMyMTI5MTAx.X1O2RA.Poh8bvDHyRAQt6AgiEEDddbjO9I";
-const prefix = "+";
+var prefix = "+";
 var muteMembersLength = 0;
 var muteListMembers = [];
 var activeUnmmute = -1;
@@ -22,7 +22,7 @@ console.log(args);
     }
 
     if(command=="help") {
-        const exampleEmbed = {
+        var embed = {
             color: 0xffffff,
             title: 'Help',
             fields: [
@@ -54,10 +54,14 @@ console.log(args);
                     name: 'mutenext',
                     value: 'Cycles through the list, @s and mutes the next person',
                 },
+                {
+                    name: 'prefix',
+                    value: "Changes the bot's prefix",
+                },
             ],
         };
         
-        message.channel.send({ embed: exampleEmbed });
+        message.channel.send({ embed: embed });
     }
 
     if (command == "timer") {
@@ -192,6 +196,16 @@ async function doPromise(message) {
             message.channel.send("Use +makelist first.")
             }
     }
+
+        if (command == 'prefix') {
+            if (typeof args[0] !== 'undefined') {
+                message.channel.send("You need to designate a prefix.")
+            }
+            else {
+                prefix = args[0];
+                message.channel.send("Prefix changed to "+args[0])
+            }
+        }
             }
 }
 
