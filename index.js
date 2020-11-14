@@ -133,6 +133,7 @@ async function doPromise(message) {
             muteListMembers.forEach(member => {
                 member.voice.setMute(false);
             });
+            message.channel.send("Ive unmuted all of you and taken you off my naughty mute list.")
         }
 
         if (command == "mutenext") {
