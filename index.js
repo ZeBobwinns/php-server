@@ -127,6 +127,14 @@ async function doPromise(message) {
 }
 }
 
+        if (command == "deletelist") {
+            muteListMembers = [];
+            muteMembersLength = 0;
+            muteListMembers.forEach(member => {
+                member.voice.setMute(false);
+            });
+        }
+
         if (command == "mutenext") {
             if (activeUnmmute > muteMembersLength - 2) {
                 activeUnmmute = 0;
