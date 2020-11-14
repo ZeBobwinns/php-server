@@ -145,7 +145,7 @@ async function doPromise(message) {
 
 
     if (command == "makelist") {
-
+        muteListMembers = [];
         var i = 0;
         muteMembersLength = args.length;
        while (i < args.length) {
@@ -172,7 +172,7 @@ async function doPromise(message) {
 
 
 if (command == "makemutelist") {
-
+muteListMembers = [];
     var i = 0;
     muteMembersLength = args.length;
    while (i < args.length) {
