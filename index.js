@@ -129,7 +129,7 @@ async function doPromise(message) {
 
         if (command == "deletelist") {
             muteListMembers.forEach(member => {
-                member.voice.setMute(false);
+                message.guild.members.cache.get(member.id).setMute(false);
             });
             muteListMembers = [];
             muteMembersLength = 0;
