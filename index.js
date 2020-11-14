@@ -127,14 +127,6 @@ async function doPromise(message) {
 }
 }
 
-        if (command == "deletelist") {
-            muteListMembers.forEach(member => {
-                message.guild.members.cache.get(member.id).setMute(false);
-            });
-            muteListMembers = [];
-            muteMembersLength = 0;
-            message.channel.send("Ive unmuted all of you and taken you off my naughty mute list.")
-        }
 
         if (command == "mutenext") {
             if (activeUnmmute > muteMembersLength - 2) {
