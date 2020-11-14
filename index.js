@@ -50,10 +50,8 @@ console.log(args);
         }
 
         if(command=="leavevoice") {
-            if (message.guild.voiceConnection) {
-                message.guild.voiceConnection.disconnect();
-                message.channel.send("Left Voice!")
-            }
+            client.leaveVoiceChannel(client.voiceState.channelID);
+            message.channel.send("Bye Bye.")
         }
 
         }
