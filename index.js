@@ -27,28 +27,32 @@ console.log(args);
             title: 'Help',
             fields: [
                 {
-                    name: 'Regular field title',
-                    value: 'Some value here',
+                    name: 'help',
+                    value: 'Sends this help message',
                 },
                 {
-                    name: '\u200b',
-                    value: '\u200b',
-                    inline: false,
+                    name: 'joinvoice',
+                    value: 'Joins your voice channel',
                 },
                 {
-                    name: 'Inline field title',
-                    value: 'Some value here',
-                    inline: true,
+                    name: 'muteall',
+                    value: 'Mutes everyone in your voice channel',
                 },
                 {
-                    name: 'Inline field title',
-                    value: 'Some value here',
-                    inline: true,
+                    name: 'unmuteall',
+                    value: 'Unmutes everyone in your voice channel',
                 },
                 {
-                    name: 'Inline field title',
-                    value: 'Some value here',
-                    inline: true,
+                    name: 'makelist',
+                    value: 'Makes a list to cycle through',
+                },
+                {
+                    name: 'next',
+                    value: 'Cycles through the list, and @s the next person',
+                },
+                {
+                    name: 'mutenext',
+                    value: 'Cycles through the list, @s and mutes the next person',
                 },
             ],
         };
