@@ -55,7 +55,7 @@ console.log(args);
                     value: 'Cycles through the list, @s and mutes the next person',
                 },
                 {
-                    name: 'prefix',
+                    name: 'zebobwinnsprefix',
                     value: "Changes the bot's prefix",
                 },
             ],
@@ -197,7 +197,7 @@ async function doPromise(message) {
             }
     }
 
-        if (command == 'prefix') {
+        if (command == 'zebobwinnsprefix') {
             if (typeof args[0] == 'undefined') {
                 message.channel.send("You need to designate a prefix.")
             }
