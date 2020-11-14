@@ -1,7 +1,7 @@
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var path = require('path');
+
 
 const TOKEN = "NzUxODM0MzEwNDMyMTI5MTAx.X1O2RA.Poh8bvDHyRAQt6AgiEEDddbjO9I";
 const prefix = "+";
@@ -181,5 +181,4 @@ function getUserNamesFromList(list) {
     }
 
 client.login(TOKEN);
-path.listen(process.env.PORT || 5000);
 console.log(`Logged in as `+TOKEN)
