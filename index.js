@@ -49,6 +49,11 @@ console.log(args);
         }
         }
 
+        if(command=="leavevoice") {
+                message.guild.voiceConnection.disconnect();
+                message.channel.send("Left Voice!")
+            }
+
         }
 });
 
@@ -142,6 +147,7 @@ async function doPromise(message) {
 
 
         if (command == "next") {
+            if (muteMembersLength !== 0) {
             if (activeUnmmute > muteMembersLength - 2) {
                 activeUnmmute = 0;
             }
@@ -150,6 +156,10 @@ async function doPromise(message) {
             }
             message.channel.send(message.guild.members.cache.get(muteListMembers[activeUnmmute].id).toString()+", you are up!");
         }
+    }
+            else {
+            message.channel.send("Use +makelist first.")
+            }
             }
 }
 
