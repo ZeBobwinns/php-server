@@ -198,7 +198,7 @@ async function doPromise(message) {
     }
 
         if (command == 'prefix') {
-            if (typeof args[0] !== 'undefined') {
+            if (typeof args[0] == 'undefined') {
                 message.channel.send("You need to designate a prefix.")
             }
             else {
