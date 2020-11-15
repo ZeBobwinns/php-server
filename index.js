@@ -44,19 +44,19 @@ console.log(args);
                 },
                 {
                     name: 'makelist',
-                    value: 'Makes a list to cycle through',
+                    value: 'Makes a list of people to cycle through using the "next" command',
                 },
                 {
                     name: 'makemutelist',
-                    value: 'Makes a list to cycle through, and mutes everyone but the first person in the list',
+                    value: 'Makes a list of people to cycle through using the "next" command, and mutes everyone but the first person in the list',
                 },
                 {
                     name: 'next',
-                    value: 'Cycles through the list, and @s the next person',
+                    value: "Cycles through the list, and @'s the next person",
                 },
                 {
                     name: 'mutenext',
-                    value: 'Cycles through the list, @s and mutes the next person',
+                    value: "Cycles through the list, @'s and mutes the next person",
                 },
                 {
                     name: 'zebobwinnsprefix',
