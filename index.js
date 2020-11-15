@@ -8,6 +8,8 @@ var prefix = "+";
 var muteMembersLength = 0;
 var muteListMembers = [];
 var activeUnmmute = -1;
+var nonmemlist = [];
+var nonmemactive = 0;
 client.on('message', message => {
     if (message.content.charAt(0) == prefix) {
     var args = message.content.slice(prefix.length).trim().split(" ");
@@ -15,8 +17,6 @@ client.on('message', message => {
     var temp = args;
     var args = command;
     var command = temp;
-    var listMembers = [];
-    var activeListUnmmute = 0
 console.log(command);
 console.log(args);
     if(command=="args") {
@@ -174,32 +174,26 @@ async function doPromise(message) {
 
 
      if (command == "makenonmemlist") {
-        while (i < args.length) {
-            listMembers[i] = args[i];
-            i++;
-        }
-        activeListUnmmute = -1;
-        message.channel.send("The list includes"+listMembers+".")
-
-        if (activeListUnmmute > muteMembersLength - 2) {
-            activeListUnmmute = 0;
-        }
-        else {
-        activeListUnmmute++
-        }
-        message.channel.send(listMembers[activeListUnmmute]+", you are up!");
+         nonmemlist = [];
+         nonmemactive = 0;
+             nonmemlist = args;
+         console.log(nonmemlist)
+         message.channel.send(nonmemlist[nonmemactive]+" is up!");
 }
 
     if (command == "nextnonmem") {
-        activeListUnmmute = -1;
-        if (activeListUnmmute > muteMembersLength - 2) {
-            activeListUnmmute = 0;
+        if (nonmemlist.length !== 0) {
+            if (nonmemactive > nonmemlist.length - 2) {
+                nonmemactive = 0;
+            }
+            else {
+                nonmemactive++
+            }
+            message.channel.send(nonmemlist[nonmemactive]+", you are up!");
         }
         else {
-        activeListUnmmute++
-        }
-        message.channel.send(listMembers[activeListUnmmute]+", you are up!");
-    }
+            message.channel.send("Use +makenonmemlist first.")
+            }
     }
 
 
