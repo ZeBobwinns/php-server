@@ -15,6 +15,8 @@ client.on('message', message => {
     var temp = args;
     var args = command;
     var command = temp;
+    var listMembers = [];
+    var activeListUnmmute = 0
 console.log(command);
 console.log(args);
     if(command=="args") {
@@ -169,6 +171,36 @@ async function doPromise(message) {
            message.channel.send(message.guild.members.cache.get(muteListMembers[activeUnmmute].id).toString()+", you are up!");
 }
 }
+
+
+     if (command == "makenonmemlist") {
+        while (i < args.length) {
+            listMembers[i] = args[i];
+            i++;
+        }
+        activeListUnmmute = -1;
+        message.channel.send("The list includes"+listMembers+".")
+
+        if (activeListUnmmute > muteMembersLength - 2) {
+            activeListUnmmute = 0;
+        }
+        else {
+        activeListUnmmute++
+        }
+        message.channel.send(listMembers[activeListUnmmute]+", you are up!");
+}
+
+    if (command == "nextnonmem") {
+        activeListUnmmute = -1;
+        if (activeListUnmmute > muteMembersLength - 2) {
+            activeListUnmmute = 0;
+        }
+        else {
+        activeListUnmmute++
+        }
+        message.channel.send(listMembers[activeListUnmmute]+", you are up!");
+    }
+    }
 
 
 if (command == "makemutelist") {
