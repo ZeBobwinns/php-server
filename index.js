@@ -53,6 +53,14 @@ console.log(args);
                     value: 'Makes a list of people to cycle through using the "next" command, and mutes everyone but the first person in the list',
                 },
                 {
+                    name: 'makenonmemlist',
+                    value: 'Makes a list of things to cycle through using the "nextnonmem" command',
+                },
+                {
+                    name: 'nextnonmem',
+                    value: 'Cycles through the list, and says the next thing',
+                },
+                {
                     name: 'next',
                     value: "Cycles through the list, and @'s the next person",
                 },
