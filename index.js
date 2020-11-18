@@ -102,6 +102,11 @@ console.log(args);
         }
         }
 
+    if (command == "makevote") {
+        var voteingOn = args[0];
+        message.channel.send("Voteing on: "+voteingOn)
+    }
+
 
         }
 });
