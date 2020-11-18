@@ -104,7 +104,8 @@ console.log(args);
 
     if (command == "makevote") {
         var voteingOn = args[0];
-        message.channel.send("Voteing on: "+voteingOn)
+        var messageSent = message.channel.send("Voteing on: "+voteingOn)
+        messageSent.react(":white_check_mark:")
     }
 
 
