@@ -10,6 +10,7 @@ var muteListMembers = [];
 var activeUnmmute = -1;
 var nonmemlist = [];
 var nonmemactive = 0;
+var pingLoopNum=0;
 client.on('message', message => {
     if (message.content.charAt(0) == prefix) {
     var args = message.content.slice(prefix.length).trim().split(" ");
@@ -91,6 +92,40 @@ console.log(args);
         }, 5000))
         }
     
+    if (command == 'react') {
+
+        var nameArray = [];
+        var reactionAmount = 0;
+        client.on('messageReactionAdd', (reaction, user) => {
+
+            let message = reaction.message, emoji = reaction.emoji;
+                    // We don't have the member, but only the user...
+                    // Thanks to the previous part, we know how to fetch it
+                    message.guild.members.fetch(user.id).then(member => {
+                            nameArray[reactionAmount]=user.tag+" Voted "+emoji.name
+                    });
+    
+                    reactionAmount++;
+            // Remove the user's reaction
+    });
+
+    setTimeout(() => {
+        var sendText = ""
+        nameArray.forEach(element => {
+            sendText = sendText + element + "; ";
+        });
+        message.channel.send(sendText);
+    }, args[0]);
+
+    }
+
+
+    if(command == "ping") {
+        var pingee = args[0];
+        var pingAmt = args[1];
+        sendPingMessage(pingee, pingAmt, message.channel)
+    }
+
 
     if(command=="joinvoice") {
         if (message.member.voice.channel) {
@@ -302,6 +337,19 @@ function getUserFromMention(mention) {
 	}
 }
 
+
+function sendPingMessage(recipent, times, channel) {
+    if(pingLoopNum < times) {
+        channel.send("Hey, "+recipent.toString()+" get TF in here!");
+        pingLoopNum++;
+        setTimeout(() => {
+            sendPingMessage(recipent, times, channel);
+        }, 2500, recipent, times, channel);
+    }
+    else{
+        pingLoopNum=0;
+    }
+}
 
 function getUserNamesFromList(list) {
     var i = 0;
