@@ -127,7 +127,8 @@ console.log(args);
         sendPingMessage(pingee, pingAmt, message.channel)
     }
 
-    if(command == "cancelPing") {
+    if(command == "cancelping") {
+        console.log("canceling ping...")
         clearTimeout(pingTimeout);
     }
 
