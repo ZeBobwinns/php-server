@@ -11,6 +11,7 @@ var activeUnmmute = -1;
 var nonmemlist = [];
 var nonmemactive = 0;
 var pingLoopNum=0;
+var pingTimeout = []
 client.on('message', message => {
     if (message.content.charAt(0) == prefix) {
     var args = message.content.slice(prefix.length).trim().split(" ");
@@ -126,6 +127,9 @@ console.log(args);
         sendPingMessage(pingee, pingAmt, message.channel)
     }
 
+    if(command == "cancelPing") {
+        clearTimeout(pingTimeout);
+    }
 
     if(command=="joinvoice") {
         if (message.member.voice.channel) {
@@ -342,7 +346,7 @@ function sendPingMessage(recipent, times, channel) {
     if(pingLoopNum < times) {
         channel.send("Hey, "+recipent.toString()+" get TF in here!");
         pingLoopNum++;
-        setTimeout(() => {
+        pingTimeout = setTimeout(() => {
             sendPingMessage(recipent, times, channel);
         }, 2500, recipent, times, channel);
     }
