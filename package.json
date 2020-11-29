@@ -1,7 +1,7 @@
 {   
     "name": "node-php",
     "engines": {
-        "node": ">=50.9"
+        "node": "14.15.0"
       },
     "description": "Our sample Node to Heroku app",
     "main": "webserver.js",
