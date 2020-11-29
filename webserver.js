@@ -3,6 +3,7 @@ fs = require("fs"),
 path = require("path"),
 url = require("url"),
 runner = require("child_process");
+const port = process.env.PORT || 3000;
 
 function sendError(errCode, errString, response)
 {
@@ -36,5 +37,5 @@ function php(request, response)
 }
 
 var server = http.createServer(php);
-server.listen(1000);
-console.log("PHP ready to run script given on port 1000.");
+server.listen(port);
+console.log("PHP ready to run script given on port "+port);
