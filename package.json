@@ -1,5 +1,8 @@
-{
-    "name": "heroku-node",
+{   
+    "name": "node-php",
+    "engines": {
+        "node": ">=50.9"
+      },
     "description": "Our sample Node to Heroku app",
     "main": "webserver.js",
     "scripts": {
