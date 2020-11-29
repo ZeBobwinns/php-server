@@ -1,11 +1,13 @@
 {
     "name": "heroku-node",
     "description": "Our sample Node to Heroku app",
-    "main": "index.js",
+    "main": "webserver.js",
     "scripts": {
         "start": "node ."
     },
     "dependencies": {
-        "discord.js": "^12.4.1"
+        "discord.js": "^12.4.1",
+        "express": "^4.17.1",
+        "php": "^1.0.1"
     }
 }
